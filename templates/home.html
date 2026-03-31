@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FWI Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            margin-top: 40px;
+        }
+        input {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 250px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>FWI Prediction</h1>
+
+    <form action="{{ url_for('predict_datapoint') }}" method="post">
+        <input type="text" name="Temperature" placeholder="Temperature" required>
+        <input type="text" name="RH" placeholder="RH" required>
+        <input type="text" name="Ws" placeholder="Ws" required>
+        <input type="text" name="Rain" placeholder="Rain" required>
+        <input type="text" name="FFMC" placeholder="FFMC" required>
+        <input type="text" name="DMC" placeholder="DMC" required>
+        <input type="text" name="ISI" placeholder="ISI" required>
+        <input type="text" name="Classes" placeholder="Classes" required>
+        <input type="text" name="Region" placeholder="Region" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <h2>
+        THE FWI prediction is {{ result }}
+    </h2>
+</div>
+
+</body>
+</html>
